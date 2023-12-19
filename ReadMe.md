@@ -1,7 +1,7 @@
 <h1>Social Media Platform</h1>
 
 <p>
-  Crafted with the MERN stack, our social media platform revolutionizes
+  Crafted with the MERN stack, This social media platform revolutionizes
   connectivity. Seamlessly share moments, engage with friends, and explore
   diverse content. Elevate your online experience with intuitive design and
   robust features. 🌐📱💬🚀
@@ -22,8 +22,7 @@
 
 <h2>Project Status</h2>
 <p>
-  The project is yet to be completed. Feel free to explore and contribute to its
-  development.
+  Currently in progress! Dive in, explore, and contribute to shape the future of this social media platform. Your ideas and contributions are valuable! 🚀👩‍💻
 </p>
 
 <h2>Contributing</h2>
