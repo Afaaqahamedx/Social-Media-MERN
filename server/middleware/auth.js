@@ -7,7 +7,7 @@ export const verifyToken = async (req, res, next) => {
     if (!token) {
       return res.status(403).send("Access Denied");
     }
-
+ 
     if (token.startsWith("Bearer ")) {
 
         // of token starts with "Bearer "
