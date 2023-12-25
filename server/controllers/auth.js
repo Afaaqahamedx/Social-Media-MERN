@@ -1,3 +1,6 @@
+// For Login and Register
+
+
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
@@ -47,7 +50,11 @@ export const register = async (req, res) => {
 
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
-  } catch (err) {
+    // to show the result as an object on the response console window
+    // Creates a new MongoDB user document (newUser) using Mongoose and saves it, 
+    // either inserting a new document or updating an existing one. Result is stored in savedUser.
+  }
+   catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
@@ -57,15 +64,21 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
+    // Searches the mongoose document to find the key value above
+    // and return the response for the scenarios below.
     if (!user) return res.status(400).json({ msg: "User does not exist. " });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: "Invalid credentials. " });
 
+    // create token that helps visit again
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    delete user.password;
+    delete user.password; // removes passwrd from the object
+    // and returns the token and the rest of the user object without it's password
     res.status(200).json({ token, user });
-  } catch (err) {
+
+  } 
+  catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
